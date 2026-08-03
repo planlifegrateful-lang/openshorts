@@ -1,0 +1,7 @@
+# Dev requirements (minimal): no heavy ML libs
+fastapi==0.95.2
+uvicorn==0.22.0
+httpx==0.24.1
+pydantic==2.5.1
+pillow==10.0.1
+pytest==7.4.0

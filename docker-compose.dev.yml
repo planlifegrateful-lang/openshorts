@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DEV_STUBS=1
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app:cached
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./dashboard:/app:cached
+  render:
+    build:
+      context: ./render-service
+      dockerfile: Dockerfile
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./render-service:/app:cached
